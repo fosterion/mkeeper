@@ -23,7 +23,7 @@ public class MkeeperWorkContext : IWorkContext
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error during commit");
+            _logger.LogError(ex, "An error occurred during the commit operation");
             throw;
         }
     }
@@ -36,7 +36,7 @@ public class MkeeperWorkContext : IWorkContext
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error during rollback");
+            _logger.LogError(ex, "An error occurred during the rollback operation");
         }
     }
 }
