@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Mkeeper.Core.WorkContext;
 
-public interface IWorkContext : IDisposable
+public interface IWorkContext
 {
-    Task Commit();
-    Task Rollback();
+    Task CommitAsync();
+    Task RollbackAsync();
 }
