@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Mkeeper.Db.Entities;
+namespace Mkeeper.Db.Entities.Abstract;
 
 public abstract class BaseEntity
 {

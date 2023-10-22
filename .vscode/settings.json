@@ -1,0 +1,7 @@
+{
+  "dotnet.defaultSolution": "Mkeeper.sln",
+  "files.exclude": {
+    "**/bin": true,
+    "**/obj": true
+  }
+}

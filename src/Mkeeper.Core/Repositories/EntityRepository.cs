@@ -5,32 +5,29 @@ using Mkeeper.Db.Entities;
 
 namespace Mkeeper.Core.Repositories;
 
-public class EntityFrameworkRepository<T> : IAsyncRepository<T>
+public class Repository<T> : IAsyncRepository<T>
     where T : BaseEntity
 {
     private readonly MkeeperContext _context;
 
-    public EntityFrameworkRepository(MkeeperContext context)
+    public Repository(MkeeperContext context)
         => _context = context;
 
-    public ValueTask<T?> GetByIdAsync(int id)
-        => _context.Set<T>().FindAsync(id);
-
-    public Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
-        => _context.Set<T>().FirstOrDefaultAsync(predicate);
-
     public void Add(T entity)
-        => _context.Set<T>().Add(entity);
+        => _context.Add(entity);
 
     public void Update(T entity)
         => _context.Entry(entity).State = EntityState.Modified;
 
     public void Remove(T entity)
-        => _context.Set<T>().Remove(entity);
+        => _context.Remove(entity);
 
     public Task<List<T>> GetAllAsync()
         => _context.Set<T>().ToListAsync();
 
-    public Task<List<T>> GetWhereAsync(Expression<Func<T, bool>> predicate)
+    public Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
+        => _context.Set<T>().FirstOrDefaultAsync(predicate);
+
+    public Task<List<T>> FindAsync(Expression<Func<T, bool>> predicate)
         => _context.Set<T>().Where(predicate).ToListAsync();
 }

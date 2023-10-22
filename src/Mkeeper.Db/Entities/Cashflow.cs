@@ -7,11 +7,9 @@ using Mkeeper.Db.Enums;
 
 namespace Mkeeper.Db.Entities;
 
-public class Wallet : BaseEntity
+public class Cashflow : BaseEntity
 {
-    public float InitialBalance { get; set; }
+    public CashflowType Type { get; set; }
 
-    public float Balance { get; set; }
-
-    public CurrencyCode CurrencyCode { get; set; }
+    public bool Deleted { get; set; }
 }
