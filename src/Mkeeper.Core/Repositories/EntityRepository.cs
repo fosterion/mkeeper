@@ -2,6 +2,7 @@ using Mkeeper.Db;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using Mkeeper.Db.Entities;
+using Mkeeper.Db.Entities.Abstract;
 
 namespace Mkeeper.Core.Repositories;
 

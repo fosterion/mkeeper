@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 using Mkeeper.Db.Entities.Abstract;
 using Mkeeper.Db.Enums;
 
 namespace Mkeeper.Db.Entities;
 
+[Table("categories")]
 public class Category : BaseEntity
 {
     public TransactionType Type { get; set; }

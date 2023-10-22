@@ -5,7 +5,9 @@ namespace Mkeeper.Db;
 
 public class MkeeperContext : DbContext
 {
+    public DbSet<Cashflow> Cashflows { get; set; } = default!;
     public DbSet<Category> Categories { get; set; } = default!;
+    public DbSet<Exchange> Exchanges { get; set; } = default!;
     public DbSet<Transaction> Transactions { get; set; } = default!;
     public DbSet<Wallet> Wallets { get; set; } = default!;
 
@@ -13,8 +15,7 @@ public class MkeeperContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Transaction>()
-            .HasOne(u => u.Category)
-            .WithMany(c => c.Transactions);
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(MkeeperContext).Assembly);
     }
 }

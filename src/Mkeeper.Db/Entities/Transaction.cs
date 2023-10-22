@@ -1,14 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mkeeper.Db.Entities;
 
+[Table("transactions")]
 public class Transaction : Cashflow
 {
-    public float Amount { get; set; }
-
     public string? Description { get; set; }
 
     public int CategoryId { get; set; }

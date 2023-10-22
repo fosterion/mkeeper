@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 using Mkeeper.Db.Entities.Abstract;
 using Mkeeper.Db.Enums;
 
 namespace Mkeeper.Db.Entities;
 
+[Table("wallets")]
 public class Wallet : BaseEntity
 {
     public float InitialBalance { get; set; }
